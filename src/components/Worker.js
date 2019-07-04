@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import WorkerCard from './WorkerCard';
 import axios from 'axios';
-import $ from 'jquery';
+// import $ from 'jquery';
 
 export default class Worker extends Component {
 
