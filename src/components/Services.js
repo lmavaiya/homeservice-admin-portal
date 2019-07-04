@@ -159,14 +159,16 @@ export default class Services extends Component {
         const { data, service_name, service_charge, service_icon, service_tnc, editItem } = this.state;
         if (data) {
             return (
-                <div className='align-data-end'>
 
-                    <ul className="list-group my-5 d-flex">
-                        <h3 className="text-capitalize float-left">
-                            Service List
+                <div className="container-fluid mt-3">
+                    <div className="container-fluid mt-3 btn btn-outline-success">
+
+                        <h2 className="my-3">Manage Service</h2>
+                    </div>
+                    <ul className="list-group my-0 d-flex">
+                        <h3 className="text-capitalize float-left border-bottom border-info p-2">
                             <button type="button" className="btn btn-primary mx-2 float-right" data-toggle="modal" data-target="#myModal">
                                 Add new service</button>
-                            <hr />
                         </h3>
 
                         <div className="d-flex justify-content-start flex-wrap">
@@ -275,10 +277,6 @@ export default class Services extends Component {
                             </div>
                         </div>
                     </div>
-
-
-
-
                 </div>
             )
         } else {

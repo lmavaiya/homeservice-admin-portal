@@ -46,8 +46,8 @@ export default class Worker extends Component {
                 alert(error);
             });
     }
-    componentDidMount() {
-        this.getWorkerList()
+    componentDidMount = async () => {
+        await this.getWorkerList()
     }
 
     render() {
@@ -60,7 +60,7 @@ export default class Worker extends Component {
 
                 <ul className="nav nav-tabs my-2">
                     <li className="nav-item">
-                        <a className="nav-link active btn btn-outline-success" data-toggle="tab" href="#home">Dashboard</a>
+                        <a className="nav-link active btn btn-outline-success" data-toggle="tab" href="#home">Worker Data</a>
                     </li>
                     <li className="nav-item">
                         <a className="nav-link btn btn-outline-success" data-toggle="tab" href="#menu1">Worker List</a>
@@ -87,9 +87,7 @@ export default class Worker extends Component {
                                 Pending Worker Request <span className="badge badge-light">15</span>
                             </button>
                         </div>
-                        {/* <p className="display-4"><span className="badge badge-primary">Registered Worker : 50</span></p>
-                        <p className="display-4"><span className="badge badge-success">Approved Worker : 50</span></p>
-                        <p className="display-4"><span className="badge badge-info">Pending Worker : 50</span></p> */}
+                        
                     </div>
                     <div id="menu1" className="container tab-pane fade"><br />
                         <div className="d-flex justify-content-start flex-wrap">
