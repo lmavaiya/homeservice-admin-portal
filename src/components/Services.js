@@ -161,26 +161,25 @@ export default class Services extends Component {
             return (
 
                 <div className="container-fluid mt-3">
-                    <div className="container-fluid mt-3 btn btn-outline-success">
+                    {/* <div className="container-fluid mt-3 btn btn-outline-success">
 
                         <h2 className="my-3">Manage Service</h2>
-                    </div>
+                    </div> */}
                     <ul className="list-group my-0 d-flex">
                         <h3 className="text-capitalize float-left border-bottom border-info p-2">
-                            <button type="button" className="btn btn-primary mx-2 float-right" data-toggle="modal" data-target="#myModal">
-                                Add new service</button>
+                            <button type="button" class="btn btn-outline-primary font-weight-bold float-right" data-toggle="modal" data-target="#myModal">+</button>
                         </h3>
 
-                        <div className="d-flex justify-content-start flex-wrap">
+                        <div className="row">
 
                             {
-                                data.map(item => {
+                                data.map(e => {
                                     return (
                                         <ServiceItem
-                                            key={item._id}
-                                            title={item.service_name}
-                                            handleDelete={() => this.handleDelete(item._id)}
-                                            handleEdit={() => this.handleEdit(item._id)}
+                                            key={e._id}
+                                            item={e}
+                                            handleDelete={() => this.handleDelete(e._id)}
+                                            handleEdit={() => this.handleEdit(e._id)}
                                         />
                                     )
                                 })
@@ -188,7 +187,7 @@ export default class Services extends Component {
                         </div>
                     </ul>
 
-                    <div className="modal" id="myModal">
+                    <div className="modal" id="myModal" style={{ zIndex: 5000 }}>
                         <div className="modal-dialog">
                             <div className="modal-content">
 

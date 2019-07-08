@@ -3,25 +3,23 @@ import React, { Component } from 'react'
 export default class ServiceItem extends Component {
     render() {
 
-        const { title, handleDelete, handleEdit } = this.props;
+        const { item, handleDelete, handleEdit } = this.props;
 
         return (
-            <li className="list-group-item text-capitalize d-flex  justify-content-between my-2 w-25">
-                <h6>{title}</h6>
-                {/* <h6>{item.service_tnc}</h6>
-                <h6>{item.service_charge}</h6>
-                <h6>{item.service_icon}</h6> */}
+            <div className="col-md-3 col-sm-12">
+                <div class="card w-100 m-1">
+                    <div class="card-header bg-success text-white font-weight-bold">{item.service_name}</div>
+                    <div class="card-body">
+                        <p><span className="font-weight-bold">Terms & Conditions :</span>{item.service_tnc}</p>
+                        <p><span className="font-weight-bold"> Service Charge: </span>{item.service_charge}</p>
+                    </div>
+                    <div class="card-footer bg-white text-center font-weight-lighter">
 
-
-                <div className="todo-icon">
-                    <span className="mx-2 text-success" data-toggle="modal" data-target="#myModal" onClick={handleEdit}>
-                        <i className="fas fa-pen"></i>
-                    </span>
-                    <span className="mx-2 text-danger" onClick={handleDelete}>
-                        <i className="fas fa-trash"></i>
-                    </span>
+                        <button className="btn btn-outline-info mx-1 " data-toggle="modal" data-target="#myModal" onClick={handleEdit}>Edit</button>
+                        <button className="btn btn-outline-danger mx-1" onClick={handleDelete}>Delete</button>
+                    </div>
                 </div>
-            </li>
+            </div>
         )
     }
 }

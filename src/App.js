@@ -2,17 +2,13 @@ import React, { Component } from 'react';
 import { Link, BrowserRouter as Router } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
-import Dashboard from './components/Dashboard';
-// import Login from './components/Login';
-
-
-
+import Sidebar from './components/Sidebar';
 
 export default class App extends Component {
   constructor() {
     super()
     this.state = {
-      login: false,
+      login: true,
       user: false,
       email: '',
       password: '',
@@ -73,7 +69,7 @@ export default class App extends Component {
     const { login, user, email, password, error_msg } = this.state
 
     if (login)
-      return (<Dashboard user={user} logoutHandler={this.logoutHandler}></Dashboard>)
+      return (<Sidebar user={user} logoutHandler={this.logoutHandler}></Sidebar>)
 
     return (
       <div className="w-100 d-flex justify-content-center">

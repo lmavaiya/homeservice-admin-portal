@@ -53,14 +53,14 @@ export default class Worker extends Component {
     render() {
         const { workerList } = this.state;
         return (
-            <div className="container-fluid mt-3">
-                <div className="container-fluid mt-3 btn btn-outline-success">
+            <div className="container-fluid mt-3 ml-0 pl-0">
+                {/* <div className="container-fluid mt-3 btn btn-outline-success">
                     <h2 className="my-3">Manage Worker</h2>
-                </div>
+                </div> */}
 
                 <ul className="nav nav-tabs my-2">
                     <li className="nav-item">
-                        <a className="nav-link active btn btn-outline-success" data-toggle="tab" href="#home">Worker Data</a>
+                        <a className="nav-link active btn btn-outline-success" data-toggle="tab" href="#home">Worker Dashboard</a>
                     </li>
                     <li className="nav-item">
                         <a className="nav-link btn btn-outline-success" data-toggle="tab" href="#menu1">Worker List</a>

@@ -1,106 +1,217 @@
-import React, { Component } from 'react'
-// import ReactDOM from 'react-dom';
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
-import Worker from './Worker';
-import History from './History';
-import Services from './Services';
-import ServiceRequest from './ServiceRequest';
-import Profile from './Profile';
-
-
-
+import React, { Component } from 'react';
+import axios from 'axios';
 
 export default class Dashboard extends Component {
+
     constructor() {
-        super()
+        super();
         this.state = {
-            user: false,
+            workerList: [],
+            ServiceList: []
         }
     }
 
-    DBoard = function (params) {
+    getWorkerList = async () => {
+        await fetch('https://worker-service03.herokuapp.com/worker')
+            .then((response) => response.json())
+            .then((responseJson) => {
+                var responseNew = responseJson.filter((e) => {
+                    return e.status === 0;
+                });
+                this.setState({
+                    workerList: responseNew,
+                })
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }
+
+
+    getNewServiceList = async () => {
+        await fetch('https://worker-service03.herokuapp.com/worker')
+            .then((response) => response.json())
+            .then((responseJson) => {
+                var responseNew = responseJson.filter((e) => {
+                    return e.status === 0;
+                });
+                this.setState({
+                    ServiceList: responseNew,
+                })
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }
+
+
+    updateStatus = async (id) => {
+
+        const config = {
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        }
+        // alert(id);
+        var update_body = new URLSearchParams();
+        update_body.append('id', id);
+
+        await axios.post('https://worker-service03.herokuapp.com/update_status/', update_body, config)
+            .then((response) => {
+                // alert(JSON.stringify(response));
+                this.getWorkerList();
+            })
+            .catch(function (error) {
+                alert(error);
+            });
+    }
+
+    componentDidMount = async () => {
+        await this.getWorkerList();
+        await this.getNewServiceList();
+    }
+    render() {
+        const { workerList, ServiceList } = this.state;
         return (
             <div id="home" className="container"><br />
-                <div className="container-fluid my-2 btn btn-outline-success">
-                    <h2 className="my-3">Dashboard</h2>
+
+                <div className="row">
+
+                    <div class="text-center col-md-3 col-sm-12">
+                        <div class="mr-2">
+                            <div class="card w-100">
+                                <div class="card-body">
+                                    <button type="button" className="btn btn-primary">
+                                        Registered Worker <span className="badge badge-light">50</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center col-md-3 col-sm-12">
+                        <div class="mr-2">
+                            <div class="card w-100">
+                                <div class="card-body">
+                                    <button type="button" className="btn btn-success m-2">
+                                        Approved Worker <span className="badge badge-light">35</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center col-md-3 col-sm-12">
+                        <div class="mr-2">
+                            <div class="card w-100">
+                                <div class="card-body">
+                                    <button type="button" className="btn btn-warning m-2">
+                                        Pending Request <span className="badge badge-light">15</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center col-md-3 col-sm-12">
+                        <div class="mr-2">
+                            <div class="card w-100">
+                                <div class="card-body">
+                                    <button type="button" className="btn btn-success m-2">
+                                        Completed Request <span className="badge badge-light">100</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
                 <hr></hr>
 
-                <div className="d-flex flex-row justify-content-between">
-                    <div className="d-flex justify-content-between flex-column w-25">
-                        <button type="button" className="btn btn-primary m-2">
-                            Registered Worker <span className="badge badge-light">50</span>
-                        </button>
 
-                        <button type="button" className="btn btn-success m-2">
-                            Approved Worker  Worker <span className="badge badge-light">35</span>
-                        </button>
+                <div className="row">
+                    <div class="text-center col-md-6 col-sm-12" style={{ display: workerList.length === 0 ? 'none' : '' }}>
+                        <div class="card w-100">
+                            <div class="card-header bg-success text-white font-weight-bold"> New Service Request </div>
+                            <div class="card-body p-0">
+                                <table className="table rounded" style={{ display: workerList.length === 0 ? 'none' : '' }}>
+                                    <thead>
+                                        <tr>
+                                            <th>Sr. No.</th>
+                                            <th>Name</th>
+                                            <th>Work Type</th>
+                                            <th>Assign to</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
 
-                        <button type="button" className="btn btn-warning m-2">
-                            Pending Worker Request <span className="badge badge-light">15</span>
-                        </button>
+                                        {ServiceList.map(item => {
+                                            return (
+
+                                                <tr className="border-warning" key={item._id}>
+                                                    <td>1</td>
+                                                    <td>Ankit Mehta</td>
+                                                    <td>Plumber</td>
+                                                    <td>
+                                                        <div className="">
+                                                            <select className="" id="exampleFormControlSelect1">
+                                                                <option>Plumber A</option>
+                                                                <option>Plumber B</option>
+                                                                <option>Plumber C</option>
+                                                                <option>Plumber D</option>
+                                                                <option>Plumber E</option>
+                                                            </select>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            )
+                                        })}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
 
-                    <div className="d-flex justify-content-between flex-column w-25">
-                        <button type="button" className="btn btn-dark m-2">
-                            Total Request <span className="badge badge-light">500</span>
-                        </button>
 
-                        <button type="button" className="btn btn-outline-primary m-2">
-                            Pending Request <span className="badge badge-light">40</span>
-                        </button>
+                    <div class="text-center col-md-6 col-sm-12" style={{ display: workerList.length === 0 ? 'none' : '' }}>
+                        <div class="card w-100">
+                            <div class="card-header bg-success text-white font-weight-bold"> New Worker Request </div>
+                            <div class="card-body p-0">
+                                <table className="table rounded" style={{ display: workerList.length === 0 ? 'none' : '' }}>
+                                    <thead>
+                                        <tr>
+                                            <th>Sr. No.</th>
+                                            <th>Name</th>
+                                            <th>Work Type</th>
+                                            <th>Verify</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {workerList.map(item => {
+                                            return (
+                                                <tr className="m-0 p-0" key={item._id}>
+                                                    <td>1</td>
+                                                    <td>{item.name}</td>
+                                                    {/* <td>{item.work_type}</td> */}
+                                                    <td>Painter</td>
+                                                    <td>
+                                                        <label className="switch">
+                                                            <input type="checkbox" onChange={() => this.updateStatus(item._id)} checked={item.status} />
+                                                            <span className="slider round"></span>
+                                                        </label>
+                                                    </td>
+                                                </tr>
 
-                        <button type="button" className="btn btn-info m-2">
-                            Competed Request <span className="badge badge-light">460</span>
-                        </button>
-                    </div>
-
-
-                    <div className="d-flex justify-content-between flex-column w-25">
-                        <button type="button" className="btn btn-primary m-2">
-                            Client Registered <span className="badge badge-light">1000</span>
-                        </button>
-
-                        <button type="button" className="btn btn-success m-2">
-                            Active User <span className="badge badge-light">500</span>
-                        </button>
+                                            )
+                                        })}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        )
 
-    }
-
-    render() {
-        // alert(this.state.user)
-        return (
-
-            <div>
-                <div className="row m-0 p-0">
-
-                    <Router>
-                        <div className="col-2 bg-dark p-2 m-0" style={{ height: '100vh' }}>
-                            <Link to="/" className=" btn btn-outline-light w-100 my-2"> Dashboard</Link>
-                            <Link to="/services" className=" btn btn-outline-light w-100 my-2"> Service</Link>
-                            <Link to="/worker" className=" btn btn-outline-light w-100 my-2"> Worker</Link>
-                            <Link to="/service_request" className=" btn btn-outline-light w-100 my-2"> Service Request</Link>
-                            <Link to="/history" className=" btn btn-outline-light w-100 my-2"> History</Link>
-                            <Link to="/change_password" className=" btn btn-outline-light w-100 my-2"> Profile</Link>
-                            <button className=" btn btn-outline-light w-100 my-2" onClick={this.props.logoutHandler}> Logout</button>
-                        </div>
-                        <div className="col-10">
-                            <Route exact path="/" component={this.DBoard} />
-                            <Route exact path="/worker" component={Worker} />
-                            <Route exact path="/services" component={Services} />
-                            <Route exact path="/history" component={History} />
-                            <Route exact path="/service_request" component={ServiceRequest} />
-                            <Route exact path="/change_password" component={Profile} />
-                        </div>
-                    </Router>
-                </div>
-            </div>
         )
     }
 }
-
-
