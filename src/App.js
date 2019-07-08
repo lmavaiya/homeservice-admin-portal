@@ -8,7 +8,7 @@ export default class App extends Component {
   constructor() {
     super()
     this.state = {
-      login: true,
+      login: false,
       user: false,
       email: '',
       password: '',
