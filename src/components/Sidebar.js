@@ -72,7 +72,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function ResponsiveDrawer(props) {
-    const { container } = props;
+    const { container, logoutHandler } = props;
     const classes = useStyles();
     const theme = useTheme();
     const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -127,7 +127,7 @@ export default function ResponsiveDrawer(props) {
 
                 <ListItem button>
                     <ListItemIcon><CloseIcon color="primary" /></ListItemIcon>
-                    <ListItemText primary='Logout' />
+                    <ListItemText primary='Logout' onClick={logoutHandler} />
                 </ListItem>
             </List>
         </div>
