@@ -113,18 +113,20 @@ export default function ResponsiveDrawer(props) {
                     <ListItemText primary='Service Request' />
                 </ListItem>
 
+                <Divider />
+                
                 <ListItem button component={Link} to={'/history'}>
                     <ListItemIcon><HistoryIcon color="primary" /></ListItemIcon>
                     <ListItemText primary='History' />
                 </ListItem>
 
-                <Divider />
 
                 <ListItem button component={Link} to={'/change_password'}>
                     <ListItemIcon><ChangePasswordIcon color="primary" /></ListItemIcon>
                     <ListItemText primary='Change Password' />
                 </ListItem>
 
+                <Divider />
                 <ListItem button>
                     <ListItemIcon><CloseIcon color="primary" /></ListItemIcon>
                     <ListItemText primary='Logout' onClick={logoutHandler} />

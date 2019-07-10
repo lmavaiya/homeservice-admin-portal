@@ -79,7 +79,7 @@ export default class Dashboard extends Component {
 
                     <div class="text-center col-md-3 col-sm-12">
                         <div class="mr-2">
-                            <div class="card w-100">
+                            <div class="card w-100" style={{height:120}}>
                                 <div class="card-body">
                                     <button type="button" className="btn btn-primary">
                                         Registered Worker <span className="badge badge-light">50</span>
@@ -91,7 +91,7 @@ export default class Dashboard extends Component {
 
                     <div class="text-center col-md-3 col-sm-12">
                         <div class="mr-2">
-                            <div class="card w-100">
+                            <div class="card w-100" style={{height:120}}>
                                 <div class="card-body">
                                     <button type="button" className="btn btn-success m-2">
                                         Approved Worker <span className="badge badge-light">35</span>
@@ -103,7 +103,7 @@ export default class Dashboard extends Component {
 
                     <div class="text-center col-md-3 col-sm-12">
                         <div class="mr-2">
-                            <div class="card w-100">
+                            <div class="card w-100" style={{height:120}}>
                                 <div class="card-body">
                                     <button type="button" className="btn btn-warning m-2">
                                         Pending Request <span className="badge badge-light">15</span>
@@ -115,7 +115,7 @@ export default class Dashboard extends Component {
             
                     <div class="text-center col-md-3 col-sm-12">
                         <div class="mr-2">
-                            <div class="card w-100">
+                            <div class="card w-100" style={{height:120}}>
                                 <div class="card-body">
                                     <button type="button" className="btn btn-success m-2">
                                         Completed Request <span className="badge badge-light">100</span>
@@ -132,10 +132,10 @@ export default class Dashboard extends Component {
                 <div className="row">
                     <div class="text-center col-md-6 col-sm-12" style={{ display: workerList.length === 0 ? 'none' : '' }}>
                         <div class="card w-100">
-                            <div class="card-header bg-success text-white font-weight-bold"> New Service Request </div>
+                            <div class="card-header bg-dark text-white font-weight-bold"> New Service Request </div>
                             <div class="card-body p-0">
                                 <table className="table rounded" style={{ display: workerList.length === 0 ? 'none' : '' }}>
-                                    <thead>
+                                    <thead className="card-header">
                                         <tr>
                                             <th>Sr. No.</th>
                                             <th>Name</th>
@@ -175,10 +175,10 @@ export default class Dashboard extends Component {
 
                     <div class="text-center col-md-6 col-sm-12" style={{ display: workerList.length === 0 ? 'none' : '' }}>
                         <div class="card w-100">
-                            <div class="card-header bg-success text-white font-weight-bold"> New Worker Request </div>
+                            <div class="card-header bg-dark text-white font-weight-bold"> New Worker Request </div>
                             <div class="card-body p-0">
                                 <table className="table rounded" style={{ display: workerList.length === 0 ? 'none' : '' }}>
-                                    <thead>
+                                    <thead className="card-header">
                                         <tr>
                                             <th>Sr. No.</th>
                                             <th>Name</th>

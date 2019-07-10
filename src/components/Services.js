@@ -167,7 +167,7 @@ export default class Services extends Component {
                     </div> */}
                     <ul className="list-group my-0 d-flex">
                         <h3 className="text-capitalize float-left border-bottom border-info p-2">
-                            <button type="button" class="btn btn-outline-primary font-weight-bold float-right" data-toggle="modal" data-target="#myModal">+</button>
+                            <button type="button" style={{backgroundColor:'#3f51b5'}} class="btn text-white font-weight-bold float-right" data-toggle="modal" data-target="#myModal">+</button>
                         </h3>
 
                         <div className="row">
@@ -209,12 +209,13 @@ export default class Services extends Component {
                                 <div className="modal-body">
                                     <div className="card card-body my-3 w-100">
                                         <form onSubmit={this.handleSubmit}>
-                                            <div className="input-group m-2" >
-                                                <div className="input-group-prepend">
+                                            <div className="form-group m-2" >
+                                                {/* <div className="input-group-prepend">
                                                     <div className="input-group-text bg-primary text-white">
                                                         <i className="fas fa-book"></i>
                                                     </div>
-                                                </div>
+                                                </div> */}
+                                                <label className="font-weight-bold">Service Name</label>
                                                 <input
                                                     type="text"
                                                     className="form-control text-capitalize"
@@ -224,12 +225,13 @@ export default class Services extends Component {
                                                     onChange={this.handleChange} required />
                                             </div>
 
-                                            <div className="input-group m-2">
-                                                <div className="input-group-prepend">
+                                            <div className="form-group m-2">
+                                                {/* <div className="input-group-prepend">
                                                     <div className="input-group-text bg-primary text-white">
                                                         <i className="fas fa-book"></i>
                                                     </div>
-                                                </div>
+                                                </div> */}
+                                                <label className="font-weight-bold">Service T&C</label>
                                                 <input
                                                     type="text"
                                                     className="form-control text-capitalize"
@@ -239,12 +241,15 @@ export default class Services extends Component {
                                                     onChange={this.handleChange} required />
                                             </div>
 
-                                            <div className="input-group m-2">
-                                                <div className="input-group-prepend">
+                                            
+                                            <div className="form-group m-2">
+                                                {/* <div className="input-group-prepend">
                                                     <div className="input-group-text bg-primary text-white">
                                                         <i className="fas fa-book"></i>
                                                     </div>
-                                                </div>
+                                                </div> */}
+                                                <label className="font-weight-bold">Service charge</label>
+                                                
                                                 <input
                                                     type="text"
                                                     className="form-control text-capitalize"
@@ -254,12 +259,13 @@ export default class Services extends Component {
                                                     onChange={this.handleChange} required />
                                             </div>
 
-                                            <div className="input-group m-2">
-                                                <div className="input-group-prepend">
+                                            <div className="form-group m-2">
+                                                {/* <div className="input-group-prepend">
                                                     <div className="input-group-text bg-primary text-white">
                                                         <i className="fas fa-book"></i>
                                                     </div>
-                                                </div>
+                                                </div> */}
+                                                <label className="font-weight-bold">Service icon</label>
                                                 <input
                                                     type="text"
                                                     className="form-control text-capitalize"
@@ -269,7 +275,7 @@ export default class Services extends Component {
                                                     onChange={this.handleChange} required />
                                             </div>
                                             <button
-                                                type="submit" className={editItem ? "btn btn-block btn-warning mt-3 text-capitalize" : "btn btn-block btn-success mt-3  text-capitalize"} >{editItem ? "edit item" : "Add Service"}</button>
+                                                type="submit" className={editItem ? "btn btn-block btn-warning mt-3 text-capitalize" : "btn btn-block btn-success mt-3  text-capitalize"} >{editItem ? "edit item" : "Add"}</button>
                                         </form>
                                     </div>
                                 </div>

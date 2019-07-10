@@ -8,7 +8,7 @@ export default class ServiceItem extends Component {
         return (
             <div className="col-md-3 col-sm-12">
                 <div class="card w-100 m-1">
-                    <div class="card-header bg-success text-white font-weight-bold">{item.service_name}</div>
+                    <div class="card-header text-white font-weight-bold" style={{backgroundColor:'#3f51b5'}}>{item.service_name}</div>
                     <div class="card-body">
                         <p><span className="font-weight-bold">Terms & Conditions :</span>{item.service_tnc}</p>
                         <p><span className="font-weight-bold"> Service Charge: </span>{item.service_charge}</p>
