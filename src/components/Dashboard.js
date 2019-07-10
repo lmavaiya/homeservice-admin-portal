@@ -112,7 +112,7 @@ export default class Dashboard extends Component {
                             </div>
                         </div>
                     </div>
-
+            
                     <div class="text-center col-md-3 col-sm-12">
                         <div class="mr-2">
                             <div class="card w-100">
