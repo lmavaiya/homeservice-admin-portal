@@ -102,10 +102,6 @@ export default class Worker extends Component {
                                 })
                             }
                         </div>
-
-
-
-
                     </div>
                     <div id="menu2" className="container-fluid m-0 p-0 tab-pane fade"><br />
 
