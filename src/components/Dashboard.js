@@ -201,7 +201,6 @@ export default class Dashboard extends Component {
                                                         </label>
                                                     </td>
                                                 </tr>
-
                                             )
                                         })}
                                     </tbody>
@@ -211,7 +210,6 @@ export default class Dashboard extends Component {
                     </div>
                 </div>
             </div>
-
         )
     }
 }
