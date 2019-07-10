@@ -167,7 +167,7 @@ export default class Services extends Component {
                     </div> */}
                     <ul className="list-group my-0 d-flex">
                         <h3 className="text-capitalize float-left border-bottom border-info p-2">
-                            <button type="button" style={{backgroundColor:'#3f51b5'}} class="btn text-white font-weight-bold float-right" data-toggle="modal" data-target="#myModal">+</button>
+                            <button data-toggle="tooltip" title="Add Service" type="button" style={{backgroundColor:'#3f51b5'}} class="btn text-white font-weight-bold float-right" data-toggle="modal" data-target="#myModal">+</button>
                         </h3>
 
                         <div className="row">
