@@ -186,6 +186,7 @@ export default function ResponsiveDrawer(props) {
                 </nav>
                 <main className={classes.content}>
                     <div className={classes.toolbar} />
+                    <Route exact path="/" component={Dashboard} />
                     <Route exact path="/dashboard" component={Dashboard} />
                     <Route exact path="/worker" component={Worker} />
                     <Route exact path="/service" component={Services} />

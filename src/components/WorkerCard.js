@@ -4,7 +4,7 @@ export default class WorkerCard extends Component {
     render() {
         const { item } = this.props;
         return (
-            <div>
+            <div className="m-1">
 
                 <div className="card w-100" style={{ fontSize: 14 }}>
 
